@@ -33,3 +33,8 @@ class Category:
 
     def add_product(self, new_products):
         self.__products.append(new_products)
+
+
+    @property
+    def see_products(self):
+        return [f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.' for product in self.__products]
