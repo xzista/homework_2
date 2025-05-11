@@ -14,27 +14,27 @@ class Product:
 
 
     @classmethod
-    def new_product(cls, prod, list_of_prod=None):
-        name = prod.get('name')
-        description = prod.get('description')
-        price = prod.get('price')
-        quantity = prod.get('quantity')
+    def new_product(cls, dict_prod, list_of_prod=None):
+        name = dict_prod.get('name')
+        description = dict_prod.get('description')
+        price = dict_prod.get('price')
+        quantity = dict_prod.get('quantity')
         if list_of_prod:
             for product in list_of_prod:
                 if product.name.lower() == name.lower():
                     product.quantity += quantity
-                    if price > product.price:
+                    if price > product.get_price:
                         product.price = price
         return cls(name, description, price, quantity)
 
 
     @property
-    def prod_price(self):
+    def get_price(self):
         return self.__price
 
 
-    @prod_price.setter
-    def prod_price(self, new_price):
+    @get_price.setter
+    def get_price(self, new_price):
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
             return
@@ -71,3 +71,7 @@ class Category:
     @property
     def see_products(self):
         return [f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.' for product in self.__products]
+
+
+if __name__ == '__main__':
+    pass
