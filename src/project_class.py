@@ -9,7 +9,7 @@ class Product:
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
 
 
@@ -27,6 +27,23 @@ class Product:
                         product.price = price
         return cls(name, description, price, quantity)
 
+
+    @property
+    def prod_price(self):
+        return self.__price
+
+
+    @prod_price.setter
+    def prod_price(self, new_price):
+        if new_price <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+            return
+        if new_price < self.__price:
+            answer = input(f'Цена снижается с {self.__price} до {new_price}. Подтвердить? (y/n): ').lower()
+            if answer != 'y':
+                print('Отмена изменения цены')
+                return
+        self.__price = new_price
 
 
 class Category:
