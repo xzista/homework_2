@@ -13,6 +13,12 @@ def products():
 
 
 @pytest.fixture
+def dict_product():
+    return {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180001.0,
+         "quantity": 10}
+
+
+@pytest.fixture
 def category1(products):
     return Category(
         "Смартфоны",
@@ -24,7 +30,7 @@ def category1(products):
 def test_init_products(products):
     assert products[0].name == "Samsung Galaxy S23 Ultra"
     assert products[1].description == "512GB, Gray space"
-    assert products[2].prod_price == 31000.0
+    assert products[2].get_price == 31000.0
     assert products[0].quantity == 5
 
 
@@ -32,3 +38,9 @@ def test_init_categories(category1):
     assert category1.name == "Смартфоны"
     assert category1.category_count == 1
     assert category1.product_count == 3
+
+
+def test_new_product(dict_product, products):
+    assert products[0].new_product(dict_product, products).get_price == 180001.0
+    assert products[0].quantity == 15
+
