@@ -13,6 +13,16 @@ class Product:
         self.quantity = quantity
 
 
+    @classmethod
+    def new_product(cls, prod):
+        name = prod.get('name')
+        description = prod.get('description')
+        price = prod.get('price')
+        quantity = prod.get('quantity')
+        return cls(name, description, price, quantity)
+
+
+
 class Category:
     """Класс для категорий"""
 
