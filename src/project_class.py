@@ -14,11 +14,17 @@ class Product:
 
 
     @classmethod
-    def new_product(cls, prod):
+    def new_product(cls, prod, list_of_prod=None):
         name = prod.get('name')
         description = prod.get('description')
         price = prod.get('price')
         quantity = prod.get('quantity')
+        if list_of_prod:
+            for product in list_of_prod:
+                if product.name.lower() == name.lower():
+                    product.quantity += quantity
+                    if price > product.price:
+                        product.price = price
         return cls(name, description, price, quantity)
 
 
