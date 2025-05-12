@@ -10,7 +10,7 @@ def products():
     return [
         Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
         Product("Iphone 15", "512GB, Gray space", 210000.0, 8),
-        Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14),
+        Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
     ]
 
 
@@ -58,3 +58,9 @@ def test_get_price(capsys, products):
         products[0].price = 100
         captured = capsys.readouterr()
         assert 'Отмена изменения цены' in captured.out
+
+
+def test_add_product(category1, products):
+    assert category1.product_count == 6
+    category1.add_product(Product("Samsung Galaxy S24 Ultra", "512GB, Серый цвет, 200MP камера", 200000.0, 1))
+    assert category1.product_count == 7
