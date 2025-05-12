@@ -71,8 +71,5 @@ def test_add_product(category1, products):
 
 
 def test_see_products(category1):
-    assert category1.see_products == [
-        "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.",
-        "Iphone 15, 210000.0 руб. Остаток: 8 шт.",
-        "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.",
-    ]
+    expected = """Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\nIphone 15, 210000.0 руб. Остаток: 8 шт.\nXiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт."""
+    assert category1.see_products.strip() == expected.strip()

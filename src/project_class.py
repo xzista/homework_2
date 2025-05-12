@@ -55,13 +55,15 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
-    def add_product(self, new_products):
-        self.__products.append(new_products)
-        Category.product_count += 1
+    def add_product(self, new_product):
+        if isinstance(new_product, Product):
+            self.__products.append(new_product)
+            Category.product_count += 1
 
     @property
     def see_products(self):
         list_products = [
-            f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products
+            f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.".strip()
+            for product in self.__products
         ]
         return "\n".join(list_products)
