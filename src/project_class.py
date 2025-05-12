@@ -61,4 +61,7 @@ class Category:
 
     @property
     def see_products(self):
-        return [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products]
+        list_products = [
+            f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products
+        ]
+        return "\n".join(list_products)
