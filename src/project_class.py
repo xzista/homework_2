@@ -1,12 +1,7 @@
 class Product:
     """Класс для продуктов"""
 
-    name = str
-    description = str
-    price = float
-    quantity = int
-
-    def __init__(self, name, description, price, quantity):
+    def __init__(self, name: str, description: str, price: float, quantity: int):
         self.name = name
         self.description = description
         self.__price = price
@@ -23,18 +18,18 @@ class Product:
             for product in list_of_prod:
                 if product.name.lower() == name.lower():
                     product.quantity += quantity
-                    if price > product.get_price:
+                    if price > product.price:
                         product.price = price
         return cls(name, description, price, quantity)
 
 
     @property
-    def get_price(self):
+    def price(self):
         return self.__price
 
 
-    @get_price.setter
-    def get_price(self, new_price):
+    @price.setter
+    def price(self, new_price):
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
             return
@@ -71,7 +66,3 @@ class Category:
     @property
     def see_products(self):
         return [f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.' for product in self.__products]
-
-
-if __name__ == '__main__':
-    pass
