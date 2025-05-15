@@ -7,6 +7,10 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+
+    def __str__(self):
+        return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
+
     @classmethod
     def new_product(cls, dict_prod, list_of_prod=None):
         name = dict_prod.get("name")
@@ -55,6 +59,11 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+
+    def __str__(self):
+        return f'{self.name}, количество продуктов: {self.product_count} шт.'
+
+
     def add_product(self, new_product):
         if isinstance(new_product, Product):
             self.__products.append(new_product)
@@ -62,8 +71,5 @@ class Category:
 
     @property
     def see_products(self):
-        list_products = [
-            f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.".strip()
-            for product in self.__products
-        ]
+        list_products = [str(product) for product in self.__products]
         return "\n".join(list_products)
