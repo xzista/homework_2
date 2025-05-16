@@ -7,10 +7,8 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     def __str__(self):
-        return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
-
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
         return self.price * self.quantity + other.price * other.quantity
@@ -63,10 +61,8 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
-
     def __str__(self):
-        return f'{self.name}, количество продуктов: {self.product_count} шт.'
-
+        return f"{self.name}, количество продуктов: {self.product_count} шт."
 
     def add_product(self, new_product):
         if isinstance(new_product, Product):
@@ -79,24 +75,23 @@ class Category:
         return "\n".join(list_products)
 
     @property
-    def products(self):
+    def product(self):
         return self.__products
 
 
 class ProductIterator:
     """Вспомогательный класс для перебора товаров одной категории"""
+
     def __init__(self, category: Category):
         self.category = category
         self.index = 0
 
-
     def __iter__(self):
         return self
 
-
     def __next__(self):
-        if self.index < len(self.category.products):
-            product = self.category.products[self.index]
+        if self.index < len(self.category.product):
+            product = self.category.product[self.index]
             self.index += 1
             return product
         else:

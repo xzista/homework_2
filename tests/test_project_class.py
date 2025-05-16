@@ -83,17 +83,17 @@ def test_see_products(category1):
 def test_str_products(capsys, products):
     print(str(products[1]))
     captured = capsys.readouterr()
-    assert 'Iphone 15, 210000.0 руб. Остаток: 8 шт.' in captured.out
+    assert "Iphone 15, 210000.0 руб. Остаток: 8 шт." in captured.out
 
 
 def test_str_category(capsys, category1):
     print(str(category1))
     captured = capsys.readouterr()
-    assert 'Смартфоны, количество продуктов: 13 шт.' in captured.out
+    assert "Смартфоны, количество продуктов: 13 шт." in captured.out
 
 
 def test_products(products, category1):
-    assert products[0] == category1.products[0]
+    assert products[0] == category1.product[0]
 
 
 def test_init_products_iterator(product_iter, category1):
