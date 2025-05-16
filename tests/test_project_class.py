@@ -104,3 +104,19 @@ def test_init_products_iterator(product_iter, category1):
 def test_iter_next_prod_iterator(product_iter, products):
     assert str(next(product_iter)) == str(products[0])
     assert str(next(product_iter)) == str(products[1])
+    assert str(next(product_iter)) == str(products[2])
+    with pytest.raises(StopIteration):
+        str(next(product_iter))
+
+
+def test_add_products_iterator(products):
+    assert products[0] + products[1] == 2_580_000
+
+
+def test_iter_products_iterator(product_iter, category1):
+    product_names = []
+
+    for product in product_iter:  # Здесь вызывается __iter__
+        product_names.append(product.name)
+
+    assert product_names == ["Samsung Galaxy S23 Ultra", "Iphone 15", "Xiaomi Redmi Note 11"]
