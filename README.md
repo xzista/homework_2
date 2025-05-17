@@ -20,3 +20,4 @@ pytest tests/
 - `products()`  — возвращает тестовый набор товаров.
 - `dict_product()`  — возвращает товар в виде словаря.
 - `category()` — создает категорию на основе фикстуры `products()`
+- `product_iter()` — создает дополнительный класс ProductIterator на основе фикстуры `category()`
