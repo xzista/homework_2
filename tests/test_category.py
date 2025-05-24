@@ -13,6 +13,8 @@ def test_add_product(category1, products):
     assert category1.product_count == 6
     category1.add_product(Product("Samsung Galaxy S24 Ultra", "512GB, Серый цвет, 200MP камера", 200000.0, 1))
     assert category1.product_count == 7
+    with pytest.raises(TypeError):
+        category1.add_product("Not a product")
 
 
 def test_see_products(category1):
