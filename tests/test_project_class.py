@@ -2,7 +2,8 @@ from unittest.mock import patch
 
 import pytest
 
-from src.project_class import Category, Product, ProductIterator
+from src.category import ProductIterator, Category
+from src.product import Product
 
 
 @pytest.fixture
