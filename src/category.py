@@ -22,9 +22,11 @@ class Category:
         return f"{self.name}, количество продуктов: {self.product_count} шт."
 
     def add_product(self, new_product):
-        if isinstance(new_product, Product):
+        if isinstance(new_product, Product) or issubclass(type(new_product), Product):
             self.__products.append(new_product)
             Category.product_count += 1
+        else:
+            raise TypeError("Объект не является продуктом")
 
     @property
     def see_products(self):
