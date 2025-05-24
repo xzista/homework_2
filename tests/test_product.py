@@ -1,5 +1,7 @@
 from unittest.mock import patch
 
+import pytest
+
 
 def test_init_products(products):
     assert products[0].name == "Samsung Galaxy S23 Ultra"
@@ -32,5 +34,8 @@ def test_str_products(capsys, products):
     assert "Iphone 15, 210000.0 руб. Остаток: 8 шт." in captured.out
 
 
-def test_add_products(products):
+def test_add_products(products, smartphones, lawn_grasses):
     assert products[0] + products[1] == 2_580_000
+    assert lawn_grasses[0] + lawn_grasses[1] == 16750.0
+    with pytest.raises(TypeError):
+        invalid_sum = smartphones[0] + lawn_grasses[0]
