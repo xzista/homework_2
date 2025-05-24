@@ -30,3 +30,7 @@ def test_str_products(capsys, products):
     print(str(products[1]))
     captured = capsys.readouterr()
     assert "Iphone 15, 210000.0 руб. Остаток: 8 шт." in captured.out
+
+
+def test_add_products(products):
+    assert products[0] + products[1] == 2_580_000

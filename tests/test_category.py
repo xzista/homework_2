@@ -43,14 +43,10 @@ def test_iter_next_prod_iterator(product_iter, products):
         str(next(product_iter))
 
 
-def test_add_products_iterator(products):
-    assert products[0] + products[1] == 2_580_000
-
-
 def test_iter_products_iterator(product_iter, category1):
     product_names = []
 
-    for product in product_iter:  # Здесь вызывается __iter__
+    for product in product_iter:
         product_names.append(product.name)
 
     assert product_names == ["Samsung Galaxy S23 Ultra", "Iphone 15", "Xiaomi Redmi Note 11"]
