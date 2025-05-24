@@ -11,14 +11,13 @@ class Product:
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        if type(other) == type(self):
+        if type(other) is type(self):
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError("Ошибка, попытка сложения разных товаров")
 
     @classmethod
     def new_product(cls, dict_prod, list_of_prod=None):
         name = dict_prod.get("name")
-        description = dict_prod.get("description")
         price = dict_prod.get("price")
         quantity = dict_prod.get("quantity")
         if list_of_prod:
