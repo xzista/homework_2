@@ -7,9 +7,9 @@ def test_add_to_cart(products):
     order1 = Order()
     order1.add_to_cart(product=products[1], quantity=2)
     order1.add_to_cart(product=products[1], quantity=2)
-    assert order1.products[0].name == 'Iphone 15'
+    assert order1.products[0].name == "Iphone 15"
     with pytest.raises(TypeError):
-        order1.add_to_cart('wrong_prod', 2)
+        order1.add_to_cart("wrong_prod", 2)
 
 
 def test_total_cost(products):
