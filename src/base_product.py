@@ -12,8 +12,8 @@ class BaseProduct(ABC):
 
     @abstractmethod
     def __str__(self):
-        pass
+        pass  # pragma: no cover
 
     @abstractmethod
     def __add__(self, other):
-        pass
+        pass  # pragma: no cover
