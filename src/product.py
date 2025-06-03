@@ -2,7 +2,7 @@ from src.base_product import BaseProduct
 from src.mixins import MixinLog
 
 
-class Product(MixinLog ,BaseProduct):
+class Product(BaseProduct, MixinLog):
     """Класс для продуктов"""
 
     def __init__(self, name: str, description: str, price: float, quantity: int):
@@ -10,7 +10,7 @@ class Product(MixinLog ,BaseProduct):
         self.description = description
         self.__price = price
         self.quantity = quantity
-        super().__init__()
+        super().__repr__()
 
     def __repr__(self):
         return f"{self.__class__.__name__}('{self.name}', '{self.description}', {self.price}, {self.quantity})"

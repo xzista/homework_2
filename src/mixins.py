@@ -1,4 +1,4 @@
 class MixinLog:
 
-    def __init__(self):
+    def __repr__(self):
         print(repr(self))
