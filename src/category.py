@@ -1,7 +1,8 @@
+from src.category_items import CategoryItems
 from src.product import Product
 
 
-class Category:
+class Category(CategoryItems):
     """Класс для категорий"""
 
     name = str
@@ -12,6 +13,7 @@ class Category:
     product_count = 0
 
     def __init__(self, name, description, products):
+        super().__init__()
         self.name = name
         self.description = description
         self.__products = products
