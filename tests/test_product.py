@@ -18,7 +18,7 @@ def test_new_product(dict_product, products):
 def test_get_price(capsys, products):
     products[1].price = -1
     captured = capsys.readouterr()
-    assert captured.out == "Цена не должна быть нулевая или отрицательная\n"
+    assert "Цена не должна быть нулевая или отрицательная\n" in captured.out
     with patch("builtins.input", return_value="y"):
         products[2].price = 1
         assert products[2].price == 1

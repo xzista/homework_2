@@ -1,11 +1,20 @@
-class Product:
+from src.base_product import BaseProduct
+from src.mixins import MixinLog
+
+
+class Product(BaseProduct, MixinLog):
     """Класс для продуктов"""
 
     def __init__(self, name: str, description: str, price: float, quantity: int):
+        super().__init__(name, description, price, quantity)
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__repr__()
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.name}', '{self.description}', {self.price}, {self.quantity})"
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."

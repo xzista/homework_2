@@ -12,6 +12,12 @@
 ### 2. Категория (`Category`)
 ### 3. Смартфоны (дочерний класс товаров) (`Smartphone`)
 ### 4. Газонная трава (дочерний класс товаров) (`LawnGrass`)
+### 5. Заказ (`Order`)
+## Абстрактные классы
+### 1. BaseProduct(ABC) (`BaseProduct`)
+### 2. CategoryItems(ABC) (`CategoryItems`)
+## Миксины
+### 1. MixinLog (`MixinLog`)
 
 ## Тестирование
 Запуск тестов:
