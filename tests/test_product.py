@@ -2,12 +2,16 @@ from unittest.mock import patch
 
 import pytest
 
+from src.product import Product
+
 
 def test_init_products(products):
     assert products[0].name == "Samsung Galaxy S23 Ultra"
     assert products[1].description == "512GB, Gray space"
     assert products[2].price == 31000.0
     assert products[0].quantity == 5
+    with pytest.raises(ValueError):
+        Product('Xiaomi Redmi Note 11', '1024GB, Синий', 31000.0, 0)
 
 
 def test_new_product(dict_product, products):
