@@ -36,6 +36,7 @@ class Category(CategoryItems):
                 raise TypeError("Объект не является продуктом")
         except ZeroQuantityError as e:
             print(e)
+            raise e
         else:
             print('Товар успешно добавлен')
         finally:

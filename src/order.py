@@ -23,6 +23,7 @@ class Order(CategoryItems):
                 raise TypeError("Можно добавлять только Product")
         except ZeroQuantityError as e:
             print(e)
+            raise e
         else:
             print('Товар успешно добавлен')
         finally:
