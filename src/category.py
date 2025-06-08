@@ -40,6 +40,14 @@ class Category(CategoryItems):
         return self.__products
 
 
+    def middle_price(self):
+        try:
+            avg_price = round(sum(prod.price for prod in self.__products) / len(self.__products), 2)
+            return avg_price
+        except ZeroDivisionError:
+            return 0
+
+
 class ProductIterator:
     """Вспомогательный класс для перебора товаров одной категории"""
 
