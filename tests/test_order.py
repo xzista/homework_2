@@ -1,6 +1,7 @@
 import pytest
 
 from src.order import Order
+from src.zero_quantity_exception import ZeroQuantityError
 
 
 def test_add_to_cart(products):
@@ -10,6 +11,9 @@ def test_add_to_cart(products):
     assert order1.products[0].name == "Iphone 15"
     with pytest.raises(TypeError):
         order1.add_to_cart("wrong_prod", 2)
+    with pytest.raises(ZeroQuantityError):
+        products[0].quantity = 0
+        order1.add_to_cart(products[0])
 
 
 def test_total_cost(products):

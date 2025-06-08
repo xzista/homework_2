@@ -1,6 +1,8 @@
 import pytest
 
+from src.category import Category
 from src.product import Product
+from src.zero_quantity_exception import ZeroQuantityError
 
 
 def test_init_categories(category1):
@@ -15,6 +17,9 @@ def test_add_product(category1, products):
     assert category1.product_count == 7
     with pytest.raises(TypeError):
         category1.add_product("Not a product")
+    with pytest.raises(ZeroQuantityError):
+        products[0].quantity = 0
+        category1.add_product(products[0])
 
 
 def test_see_products(category1):
@@ -30,6 +35,16 @@ def test_str_category(capsys, category1):
 
 def test_product(products, category1):
     assert products[0] == category1.product[0]
+
+
+def test_middle_price(category1):
+    assert category1.middle_price() == 140333.33
+    category2 = Category(
+        "Смартфоны",
+        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+        products=[],
+    )
+    assert category2.middle_price() == 0
 
 
 def test_init_products_iterator(product_iter, category1):
