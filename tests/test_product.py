@@ -11,7 +11,7 @@ def test_init_products(products):
     assert products[2].price == 31000.0
     assert products[0].quantity == 5
     with pytest.raises(ValueError):
-        Product('Xiaomi Redmi Note 11', '1024GB, Синий', 31000.0, 0)
+        Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 0)
 
 
 def test_new_product(dict_product, products):

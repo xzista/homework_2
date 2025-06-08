@@ -39,9 +39,10 @@ def test_product(products, category1):
 
 def test_middle_price(category1):
     assert category1.middle_price() == 140333.33
-    category2 = Category("Смартфоны",
+    category2 = Category(
+        "Смартфоны",
         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-        products=[]
+        products=[],
     )
     assert category2.middle_price() == 0
 

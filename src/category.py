@@ -38,10 +38,9 @@ class Category(CategoryItems):
             print(e)
             raise e
         else:
-            print('Товар успешно добавлен')
+            print("Товар успешно добавлен")
         finally:
-            print('Обработка добавления товара завершена')
-
+            print("Обработка добавления товара завершена")
 
     @property
     def see_products(self):
@@ -51,7 +50,6 @@ class Category(CategoryItems):
     @property
     def product(self):
         return self.__products
-
 
     def middle_price(self):
         try:

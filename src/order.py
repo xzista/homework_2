@@ -25,9 +25,9 @@ class Order(CategoryItems):
             print(e)
             raise e
         else:
-            print('Товар успешно добавлен')
+            print("Товар успешно добавлен")
         finally:
-            print('Обработка добавления товара завершена')
+            print("Обработка добавления товара завершена")
 
     @property
     def total_cost(self):
